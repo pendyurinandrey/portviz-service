@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Summary</title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css"/>
+</h:head>
+
+<h:body>
+    <ui:include src="../shared/menu.xhtml"/>
+
+    <div class="grid">
+        <div class="col">
+            <p:barChart model="#{summaryView.incomeOutcomeBarChart}" style="height:300px"/>
+        </div>
+        <div class="col">
+            <div class="text-center p-3 border-round-sm bg-primary font-bold ">2</div>
+        </div>
+    </div>
+</h:body>
+</html>

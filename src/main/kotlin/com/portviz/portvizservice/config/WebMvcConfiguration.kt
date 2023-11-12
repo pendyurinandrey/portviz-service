@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
-class WelcomePageRedirect: WebMvcConfigurer {
+class WebMvcConfiguration: WebMvcConfigurer {
     override fun addViewControllers(registry: ViewControllerRegistry) {
         registry.addViewController("/")
             .setViewName("forward:/index.xhtml")

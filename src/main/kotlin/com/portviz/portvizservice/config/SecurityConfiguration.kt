@@ -1,6 +1,7 @@
 package com.portviz.portvizservice.config
 
 import com.portviz.portvizservice.services.security.DefaultUserDetailsService
+import com.portviz.portvizservice.utils.SecurityRoles
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy
@@ -18,25 +19,23 @@ class SecurityConfiguration {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            .authorizeHttpRequests { auth ->
-                auth
-                    .requestMatchers(AntPathRequestMatcher.antMatcher("/jakarta.faces.resource/**"))
+            .authorizeHttpRequests {
+                it.requestMatchers(AntPathRequestMatcher.antMatcher("/jakarta.faces.resource/**"))
                     .permitAll()
                     .anyRequest()
                     .authenticated()
             }
-            .formLogin { login ->
-                login
-                    .loginPage("/login.xhtml")
+            .formLogin {
+                it.loginPage("/login.xhtml")
                     .permitAll()
                     .failureUrl("/login.xhtml?error=true")
                     .successForwardUrl("/index.xhtml")
             }
-            .logout { customizer ->
-                customizer.logoutSuccessUrl("/login.xhtml")
+            .logout {
+                it.logoutSuccessUrl("/login.xhtml")
             }
-            .csrf { customizer ->
-                customizer.disable()
+            .csrf {
+                it.disable()
             }
         return http.build()
     }
@@ -49,7 +48,7 @@ class SecurityConfiguration {
     @Bean
     fun roleHierarchy(): RoleHierarchy {
         val roleHierarchy = RoleHierarchyImpl()
-        roleHierarchy.setHierarchy("ROLE_EDITOR > ROLE_VIEWER");
+        roleHierarchy.setHierarchy("${SecurityRoles.ROLE_EDITOR.name} > ${SecurityRoles.ROLE_VIEWER.name}");
         return roleHierarchy;
     }
 
