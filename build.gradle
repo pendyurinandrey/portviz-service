@@ -15,8 +15,20 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+	imports {
+		mavenBom 'org.joinfaces:joinfaces-dependencies:5.1.5'
+	}
+}
+
 dependencies {
-	implementation group: 'org.joinfaces', name: 'jsf-spring-boot-starter', version: '5.1.5'
+	implementation('org.joinfaces:jsf-spring-boot-starter') {
+		exclude group: 'org.joinfaces', module: 'mojarra3-spring-boot-starter'
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+	}
+	implementation 'org.glassfish:jakarta.faces:3.0.5'
+	// Jetty 11 supports only Jakarta 5.0.0
+	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 	implementation group: 'org.primefaces', name: 'primefaces', version: '13.0.2', classifier: 'jakarta'
 	implementation group: 'org.primefaces.extensions', name: 'primefaces-extensions', version: '13.0.2', classifier: 'jakarta'
 	implementation group: 'org.webjars.npm', name: 'primeflex', version: '3.3.1'
@@ -24,7 +36,10 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-taglibs'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation('org.springframework.boot:spring-boot-starter-web') {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+	}
+	implementation 'org.springframework.boot:spring-boot-starter-jetty'
 	implementation group: 'org.springframework.webflow', name: 'spring-faces', version: '3.0.0'
 
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
