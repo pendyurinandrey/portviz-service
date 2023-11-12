@@ -49,7 +49,7 @@ class SecurityConfiguration {
     @Bean
     fun roleHierarchy(): RoleHierarchy {
         val roleHierarchy = RoleHierarchyImpl()
-        roleHierarchy.setHierarchy("ROLE_VIEWER > ROLE_EDITOR");
+        roleHierarchy.setHierarchy("ROLE_EDITOR > ROLE_VIEWER");
         return roleHierarchy;
     }
 
