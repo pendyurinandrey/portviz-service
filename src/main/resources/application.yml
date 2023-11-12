@@ -2,4 +2,4 @@ spring.profiles.active: local
 
 joinfaces:
   faces:
-    facelets-libraries: /WEB-INF/springsecurity.taglib.xml
+    facelets-libraries: /tags/springsecurity.taglib.xml
