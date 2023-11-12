@@ -32,6 +32,9 @@ class SecurityConfiguration {
                     .failureUrl("/login.xhtml?error=true")
                     .successForwardUrl("/index.xhtml")
             }
+            .logout { customizer ->
+                customizer.logoutSuccessUrl("/login.xhtml")
+            }
             .csrf { customizer ->
                 customizer.disable()
             }

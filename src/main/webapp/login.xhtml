@@ -21,15 +21,15 @@
             <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
 
             <h:panelGrid columns="2" cellpadding="5">
-                <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username"
+                <p:inputText id="username" required="true" label="username"
                              placeholder="Username"/>
                 <br/>
-                <p:password id="password" value="#{userLoginView.password}" required="true" label="password"
+                <p:password id="password" required="true" label="password"
                             placeholder="Password"/>
 
                 <f:facet name="footer">
                     <div class="flex align-items-center justify-content-center">
-                        <p:commandButton value="Login" update="growl" action="#{userLoginView.login}" ajax="false"/>
+                        <p:commandButton value="Login" update="growl" ajax="false"/>
                     </div>
                 </f:facet>
             </h:panelGrid>
