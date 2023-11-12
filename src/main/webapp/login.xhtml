@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>PortViz Login</title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+
+<h:body>
+    <div class="flex align-items-center justify-content-center">
+        <h:panelGrid columns="1" rendered="${!empty param['error']}">
+            <p:outputLabel value="Invalid username or password" styleClass="text-red-600" />
+        </h:panelGrid>
+    </div>
+    <div class="flex align-items-center justify-content-center">
+        <h:form prependId="false">
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username"
+                             placeholder="Username"/>
+                <br/>
+                <p:password id="password" value="#{userLoginView.password}" required="true" label="password"
+                            placeholder="Password"/>
+
+                <f:facet name="footer">
+                    <div class="flex align-items-center justify-content-center">
+                        <p:commandButton value="Login" update="growl" action="#{userLoginView.login}" ajax="false"/>
+                    </div>
+                </f:facet>
+            </h:panelGrid>
+        </h:form>
+    </div>
+</h:body>
+</html>
