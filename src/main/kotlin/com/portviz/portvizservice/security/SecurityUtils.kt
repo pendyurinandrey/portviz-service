@@ -1,4 +1,4 @@
-package com.portviz.portvizservice.utils
+package com.portviz.portvizservice.security
 
 import org.springframework.security.core.context.SecurityContextHolder
 

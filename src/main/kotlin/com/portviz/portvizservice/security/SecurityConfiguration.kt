@@ -1,7 +1,5 @@
-package com.portviz.portvizservice.config
+package com.portviz.portvizservice.security
 
-import com.portviz.portvizservice.services.security.DefaultUserDetailsService
-import com.portviz.portvizservice.utils.SecurityRoles
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy

@@ -1,6 +1,5 @@
-package com.portviz.portvizservice.services.security
+package com.portviz.portvizservice.security
 
-import com.portviz.portvizservice.utils.SecurityRoles
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails

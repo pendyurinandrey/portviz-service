@@ -2,7 +2,7 @@ package com.portviz.portvizservice.views.statistics
 
 import com.portviz.portvizservice.dto.statistics.IncomeOutcomeEntry
 import com.portviz.portvizservice.services.statistics.PortvizStatisticsService
-import com.portviz.portvizservice.utils.SecurityUtils
+import com.portviz.portvizservice.security.SecurityUtils
 import jakarta.enterprise.context.RequestScoped
 import jakarta.inject.Named
 import org.primefaces.model.charts.ChartData

@@ -1,4 +1,4 @@
-package com.portviz.portvizservice.utils
+package com.portviz.portvizservice.security
 
 enum class SecurityRoles {
     ROLE_VIEWER,
