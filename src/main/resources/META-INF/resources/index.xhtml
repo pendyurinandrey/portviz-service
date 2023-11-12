@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:sec="http://www.springframework.org/security/tags">
+      xmlns:sec="http://www.springframework.org/security/tags"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
     <title>Index</title>
@@ -12,45 +13,6 @@
 </h:head>
 
 <h:body>
-    <h:form>
-        <p:growl id="messages"/>
-
-        <p:menubar>
-            <p:submenu label="Integrations" icon="pi pi-sync" rendered="#{sec:areAllGranted('ROLE_EDITOR')}">
-                <p:menuitem value="Sync Zenmoney" url="#" />
-            </p:submenu>
-
-            <p:submenu label="Edit" icon="pi pi-pencil">
-                <p:menuitem value="Undo" url="#" icon="pi pi-angle-double-left" />
-                <p:menuitem value="Redo" url="#" icon="pi pi-angle-double-right" />
-            </p:submenu>
-
-            <p:submenu label="Help" icon="pi pi-question">
-                <p:menuitem value="Contents" url="#" />
-                <p:submenu label="Search" icon="pi pi-search">
-                    <p:submenu label="Text">
-                        <p:menuitem value="Workspace" url="#" />
-                    </p:submenu>
-                    <p:menuitem value="File" url="#" />
-                </p:submenu>
-            </p:submenu>
-
-            <p:submenu label="Actions" icon="pi pi-cog">
-                <p:submenu label="Ajax" icon="pi pi-refresh">
-                    <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
-                    <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
-                </p:submenu>
-                <p:submenu label="Non-Ajax" icon="pi pi-clone">
-                    <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
-                </p:submenu>
-            </p:submenu>
-
-            <p:menuitem value="Quit" url="http://www.primefaces.org" icon="pi pi-times" />
-
-            <f:facet name="options">
-                <p:commandButton value="Logout" icon="pi pi-home" ajax="false" action="#{logoutView.logout()}"/>
-            </f:facet>
-        </p:menubar>
-    </h:form>
+    <ui:include src="shared/menu.xhtml"/>
 </h:body>
 </html>

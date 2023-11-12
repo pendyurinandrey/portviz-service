@@ -4,6 +4,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 
 class DefaultUserDetailsService : UserDetailsService {
 
@@ -23,8 +24,8 @@ class DefaultUserDetailsService : UserDetailsService {
     }
 
     override fun loadUserByUsername(username: String?): UserDetails? {
-        if (username.isNullOrBlank()) {
-            return null
+        if (username.isNullOrBlank() || !accounts.containsKey(username)) {
+            throw UsernameNotFoundException("$username is not found")
         }
         // User is mutable and it's modified by Spring after returning from this method
         return User.withUserDetails(accounts[username]).build()
